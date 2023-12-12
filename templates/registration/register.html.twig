@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+
+	<div class="container mt-4">
+		<h1>S'inscrire</h1>
+		<p>Vous devez être connectés afin de pouvoir réserver un cours ou une retraite</p>
+
+		{{ form_errors(registrationForm) }}
+
+		{{ form_start(registrationForm) }}
+		{{ form_row(registrationForm.email) }}
+		{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+		{{ form_row(registrationForm.firstname, {
+        label: 'Prénom'
+    }) }}
+		{{ form_row(registrationForm.lastname, {
+        label: 'Nom'
+    }) }}
+		{{ form_row(registrationForm.phone, {
+        label: 'Téléphone'
+    }) }}
+
+		<span>S'inscrire à la newsletter</span>
+		{{ form_row(registrationForm.newsletter) }}
+
+
+		{{ form_row(registrationForm.agreeTerms, {
+        label: 'J\'ai lu et accepte les CGV'
+    }) }}
+
+		<button type="submit" class="btn btn-secondary">Créer mon compte</button>
+		{{ form_end(registrationForm) }}
+	</div>
+
+{% endblock %}
